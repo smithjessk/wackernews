@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>compojure</groupId>
-  <artifactId>compojure</artifactId>
-  <packaging>jar</packaging>
+  <groupId>wackernews</groupId>
+  <artifactId>wackernews</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <name>compojure</name>
+  <name>wackernews</name>
   <description>FIXME: write description</description>
   <url>http://example.com/FIXME</url>
   <licenses>
@@ -16,8 +17,7 @@
   <scm>
     <connection>scm:git:git://github.com/smithjessk/wackernews.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/smithjessk/wackernews.git</developerConnection>
-    <tag>81ef46cf23b789670e549731de0e3e3f0bc3ce30
-</tag>
+    <tag>ea3fb4fc487c12a99a96e93af8d7e8f4370a3c58</tag>
     <url>https://github.com/smithjessk/wackernews</url>
   </scm>
   <build>
@@ -30,33 +30,18 @@
     </resources>
     <testResources>
       <testResource>
-        <directory>resources</directory>
+        <directory>test-resources</directory>
       </testResource>
     </testResources>
-    <directory>target</directory>
-    <outputDirectory>target/classes</outputDirectory>
-    <plugins/>
   </build>
   <repositories>
     <repository>
       <id>central</id>
-      <url>https://repo1.maven.org/maven2/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
+      <url>http://repo1.maven.org/maven2</url>
     </repository>
     <repository>
       <id>clojars</id>
-      <url>https://clojars.org/repo/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
+      <url>http://clojars.org/repo/</url>
     </repository>
   </repositories>
   <dependencies>
@@ -66,9 +51,24 @@
       <version>1.7.0</version>
     </dependency>
     <dependency>
+      <groupId>ring</groupId>
+      <artifactId>ring</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>compojure</groupId>
+      <artifactId>compojure</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
       <groupId>hiccup</groupId>
       <artifactId>hiccup</artifactId>
       <version>1.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>http-kit</groupId>
+      <artifactId>http-kit</artifactId>
+      <version>2.1.16</version>
     </dependency>
   </dependencies>
 </project>
