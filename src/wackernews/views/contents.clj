@@ -21,13 +21,13 @@
         [:span {:class "deadmark"}] 
         [:a {:href story.url} story.title] 
         [:span {:class "sitebit comhead"} " (" 
-         [:a {:href (str hn-url "from?site=rbth.co.uk")} 
+         [:a {:href (str hn-url "from?site=rbth.co.uk")}
           [:span {:class "sitestr"} "rbth.co.uk"]] ")"]]]
       [:tr 
        [:td {:colspan "2"}] 
        [:td {:class "subtext"}  
         [:span {:class "score", :id (str "score_" story.id } (str story.score " points")] " by " 
-        [:a {:href (str hn-url "user?id=" story.by)} story.by ] " " 
-        [:a {:href (str hn-url "item?id=" story.id)} story.time ] "  | " 
-        [:a {:href (str hn-url "item?id=" story.id)} (str story.descendents " comments")] "              "]]  
-      [:tr {:class "spacer", :style "height:5px"}]]]]])
+         [:a {:href (str hn-url "user?id=" story.by)} story.by ] " " 
+         [:a {:href (str hn-url "item?id=" story.id)} story.time ] "  | " 
+         [:a {:href (str hn-url "item?id=" story.id)} (str story.descendents " comments")] "              "]]  
+       [:tr {:class "spacer", :style "height:5px"}]]]]])
