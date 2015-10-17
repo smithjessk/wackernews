@@ -3,9 +3,9 @@
         [hiccup.page :only (html5 include-css include-js)]
         [hiccup.element :only (link-to)]))
 
-(def hn-url "http://news.ycombinator.com/") 
+(def hn-url "http://news.ycombinator.com/")
 
-(defn post []
+(defn post [ story ]
   [:tr 
    [:td 
     [:table {:border "0", :cellpadding "0", :cellspacing "0"}
@@ -15,20 +15,19 @@
         [:span {:class "rank"} "1."]] "      " 
        [:td 
         [:center 
-         [:a {:id "up_10402150", :onclick "return vote(this)", :href (str hn-url "vote?for=10402150&dir=up&auth=764bf5d09d9b274e86125bbeb4790a3f9439ccbc&goto=news")} 
+         [:a {:id (str "up_" story.id), :onclick "return vote(this)", :href (str hn-url "vote?for=" story.id)} 
           [:div {:class "votearrow", :title "upvote"}]]]]
        [:td {:class "title"} 
         [:span {:class "deadmark"}] 
-        [:a {:href "http://rbth.co.uk/multimedia/pictures/2014/04/07/before_the_internet_top_11_soviet_pcs_35711"} "Soviet PCs"] 
+        [:a {:href story.url} story.title] 
         [:span {:class "sitebit comhead"} " (" 
          [:a {:href (str hn-url "from?site=rbth.co.uk")} 
           [:span {:class "sitestr"} "rbth.co.uk"]] ")"]]]
       [:tr 
        [:td {:colspan "2"}] 
        [:td {:class "subtext"}  
-        [:span {:class "score", :id "score_10402150"} "112 points"] " by " 
-        [:a {:href (str hn-url "user?id=grhmc")} "grhmc"] " " 
-        [:a {:href (str hn-url "item?id=10402150")} "2 hours ago"] "  | " 
-        [:a {:href (str hn-url "flag?id=10402150&auth=764bf5d09d9b274e86125bbeb4790a3f9439ccbc&goto=news")} "flag"] " | " 
-        [:a {:href (str hn-url "item?id=10402150")} "49 comments"] "              "]]  
+        [:span {:class "score", :id (str "score_" story.id } (str story.score " points")] " by " 
+        [:a {:href (str hn-url "user?id=" story.by)} story.by ] " " 
+        [:a {:href (str hn-url "item?id=" story.id)} story.time ] "  | " 
+        [:a {:href (str hn-url "item?id=" story.id)} (str story.descendents " comments")] "              "]]  
       [:tr {:class "spacer", :style "height:5px"}]]]]])
