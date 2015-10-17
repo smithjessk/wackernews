@@ -3,7 +3,7 @@
         [hiccup.page :only (html5 include-css include-js)]
         [hiccup.element :only (link-to)]))
 
-(defn index []
+(defn post []
   [:tr 
    [:td 
     [:table {:border "0", :cellpadding "0", :cellspacing "0"}
@@ -21,12 +21,12 @@
         [:span {:class "sitebit comhead"} " (" 
          [:a {:href "from?site=rbth.co.uk"} 
           [:span {:class "sitestr"} "rbth.co.uk"]] ")"]]]
-           [:tr 
-            [:td {:colspan "2"}] 
-            [:td {:class "subtext"}  
-             [:span {:class "score", :id "score_10402150"} "112 points"] " by " 
-             [:a {:href "user?id=grhmc"} "grhmc"] " " 
-             [:a {:href "item?id=10402150"} "2 hours ago"] "  | " 
-             [:a {:href "flag?id=10402150&auth=764bf5d09d9b274e86125bbeb4790a3f9439ccbc&goto=news"} "flag"] " | " 
-             [:a {:href "item?id=10402150"} "49 comments"] "              "]]  
-           [:tr {:class "spacer", :style "height:5px"}]]]]])
+      [:tr 
+       [:td {:colspan "2"}] 
+       [:td {:class "subtext"}  
+        [:span {:class "score", :id "score_10402150"} "112 points"] " by " 
+        [:a {:href "user?id=grhmc"} "grhmc"] " " 
+        [:a {:href "item?id=10402150"} "2 hours ago"] "  | " 
+        [:a {:href "flag?id=10402150&auth=764bf5d09d9b274e86125bbeb4790a3f9439ccbc&goto=news"} "flag"] " | " 
+        [:a {:href "item?id=10402150"} "49 comments"] "              "]]  
+      [:tr {:class "spacer", :style "height:5px"}]]]]])
