@@ -7,7 +7,10 @@
               :user-agent "User-Agent-string"
               :headers {"X-Header" "Value"}})
 
-(def url "https://hacker-news.firebaseio.com/v0/item/8863.json")
+
+
+(defn generate-item-url [id]
+  (str "https://hacker-news.firebaseio.com/v0/item/" id ".json"))
 
 (def top-articles-url 
   "https://hacker-news.firebaseio.com/v0/topstories.json")
@@ -17,10 +20,17 @@
     (fn [{:keys [status headers body error]}]
       (if error
         (println "Failed to get latest articles. Exception is " error)
-        (callback-fn body)))))
+        (callback-fn (load-string body))))))
+
+(defn get-item [id]
+  (http/get (generate-item-url id) options
+    (fn [{:keys [status headers body error]}]
+      (if error
+        (println "Failed, exception is " error)
+        (println "Async HTTP GET: " body)))))
 
 (defn grab [criteria]
-  (http/get url options
+  (http/get (generate-item-url "8869") options
     (fn [{:keys [status headers body error]}] 
       (if error
         (println "Failed, exception is " error)

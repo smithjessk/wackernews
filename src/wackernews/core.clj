@@ -10,7 +10,10 @@
   (GET "/" [] (layout/application "Home" (contents/index)))
   (route/resources "/"))
 
+(defn group-print [articles]
+  (println articles))
+
 (defn -main []
   (println "Let the wackness begin...")
-  (get-top-articles println)
+  (get-top-articles group-print)
   (run-server wackernews {:port 5000}))
