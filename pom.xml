@@ -16,7 +16,7 @@
   <scm>
     <connection>scm:git:git://github.com/smithjessk/wackernews.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/smithjessk/wackernews.git</developerConnection>
-    <tag>299258e72338476a9c4a0837afe10488edf1fc45
+    <tag>cad6005ae7abcf84bab48c03ab60c05317eb94da
 </tag>
     <url>https://github.com/smithjessk/wackernews</url>
   </scm>
