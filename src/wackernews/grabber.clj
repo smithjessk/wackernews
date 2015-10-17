@@ -26,10 +26,3 @@
       (if error
         (println "Failed, exception is " error)
         (callback-fn body)))))
-
-(defn grab [criteria]
-  (http/get (generate-item-url "8869") options
-    (fn [{:keys [status headers body error]}] 
-      (if error
-        (println "Failed, exception is " error)
-        (println "Async HTTP GET: " body)))))
