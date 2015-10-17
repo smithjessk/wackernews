@@ -7,8 +7,6 @@
               :user-agent "User-Agent-string"
               :headers {"X-Header" "Value"}})
 
-
-
 (defn generate-item-url [id]
   (str "https://hacker-news.firebaseio.com/v0/item/" id ".json"))
 
