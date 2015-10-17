@@ -7,7 +7,7 @@
             [org.httpkit.server :refer [run-server]]))
 
 (defroutes wackernews
-  (GET "/" [] (layout/application "Home" (contents/post)))
+  (GET "/" [] (layout/application "Home" "Poo"))
   (route/resources "/"))
 
 (defn group-print [articles]
