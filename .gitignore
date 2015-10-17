@@ -2,5 +2,6 @@ classes/
 target/
 lib/
 .lein-deps-sum
+.lein-repl-history
 *.jar
 *.sublime-*
