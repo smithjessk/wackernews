@@ -10,4 +10,4 @@ The only thing less wack is the implementation language.
 Clojure with: 
 - [Compojure](https://github.com/weavejester/compojure)
 - [Hiccup](https://github.com/weavejester/hiccup)
-- [Ring](https://github.com/ring-clojure/ring).  
+- [Ring](https://github.com/ring-clojure/ring)
