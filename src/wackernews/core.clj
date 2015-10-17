@@ -12,10 +12,10 @@
   (println articles))
 
 (defn make-request [item]
-  (def f (future (get-item item #(parse-string %1 true)))) f)
+  (get-item item #(parse-string %1 true)))
 
 (defn gen-post [result]
-  (contents/post @@result))
+  (contents/post @result))
 
 (defn get-all-items [top-items]
   (def res (map gen-post
