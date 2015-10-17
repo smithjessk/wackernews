@@ -15,19 +15,19 @@
         [:span {:class "rank"} "1."]] "      " 
        [:td 
         [:center 
-         [:a {:id (str "up_" (story [:id])), :onclick "return vote(this)", :href (str hn-url "vote?for=" (story [:id]))} 
+         [:a {:id (str "up_" (get story :id)), :onclick "return vote(this)", :href (str hn-url "vote?for=" (get story :id))} 
           [:div {:class "votearrow", :title "upvote"}]]]]
        [:td {:class "title"} 
         [:span {:class "deadmark"}] 
-        [:a {:href (story [:url])} (story [:title])] 
+        [:a {:href (get story :url)} (get story :title)] 
         [:span {:class "sitebit comhead"} " (" 
          [:a {:href (str hn-url "from?site=rbth.co.uk")}
           [:span {:class "sitestr"} "rbth.co.uk"]] ")"]]]
       [:tr 
        [:td {:colspan "2"}] 
        [:td {:class "subtext"}  
-        [:span {:class "score", :id (str "score_" (story [:id])) } (str (story [:score]) " points")] " by " 
-         [:a {:href (str hn-url "user?id=" (story [:by]))} (story [:by]) ] " " 
-         [:a {:href (str hn-url "item?id=" (story [:id]))} (story [:time]) ] "  | " 
-         [:a {:href (str hn-url "item?id=" (story [:id]))} (str (story [:descendents]) " comments")] "              "]]  
+        [:span {:class "score", :id (str "score_" (get story :id)) } (str (get story :score) " points")] " by " 
+         [:a {:href (str hn-url "user?id=" (get story :by))} (get story :by) ] " " 
+         [:a {:href (str hn-url "item?id=" (get story :id))} (get story :time) ] "  | " 
+         [:a {:href (str hn-url "item?id=" (get story :id))} (str (get story :descendents) " comments")] "              "]]  
        [:tr {:class "spacer", :style "height:5px"}]]]]])

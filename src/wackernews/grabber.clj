@@ -20,12 +20,12 @@
         (println "Failed to get latest articles. Exception is " error)
         (callback-fn (load-string body))))))
 
-(defn get-item [id]
+(defn get-item [id callback-fn]
   (http/get (generate-item-url id) options
     (fn [{:keys [status headers body error]}]
       (if error
         (println "Failed, exception is " error)
-        (println "Async HTTP GET: " body)))))
+        (callback-fn body)))))
 
 (defn grab [criteria]
   (http/get (generate-item-url "8869") options
