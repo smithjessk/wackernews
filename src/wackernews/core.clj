@@ -14,11 +14,11 @@
 (defn make-request [item]
   (get-item item #(parse-string %1 true)))
 
-(defn gen-post [result]
-  (contents/post @result))
+(defn gen-post [index, result]
+  (contents/post index, @result))
 
 (defn get-all-items [top-items]
-  (def res (map gen-post
+  (def res (map-indexed gen-post
                 (map make-request
                      (take 30 top-items)))) res)
 

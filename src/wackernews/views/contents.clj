@@ -5,14 +5,14 @@
 
 (def hn-url "http://news.ycombinator.com/")
 
-(defn post [ story ]
+(defn post [ index, story ]
   [:tr 
    [:td 
     [:table {:border "0", :cellpadding "0", :cellspacing "0"}
      [:tbody 
       [:tr {:class "athing"}
        [:td {:align "right", :valign "top", :class "title"} 
-        [:span {:class "rank"} "1."]] "      " 
+        [:span {:class "rank"} (str (+ index 1) ".")]] "      " 
        [:td 
         [:center 
          [:a {:id (str "up_" (get story :id)), :onclick "return vote(this)", :href (str hn-url "vote?for=" (get story :id))} 
@@ -29,5 +29,5 @@
         [:span {:class "score", :id (str "score_" (get story :id)) } (str (get story :score) " points")] " by " 
          [:a {:href (str hn-url "user?id=" (get story :by))} (get story :by) ] " " 
          [:a {:href (str hn-url "item?id=" (get story :id))} (get story :time) ] "  | " 
-         [:a {:href (str hn-url "item?id=" (get story :id))} (str (get story :descendents) " comments")] "              "]]  
+         [:a {:href (str hn-url "item?id=" (get story :id))} (str (get story :descendants) " comments")] "              "]]  
        [:tr {:class "spacer", :style "height:5px"}]]]]])
