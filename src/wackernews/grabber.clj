@@ -15,14 +15,14 @@
 
 (defn get-top-articles [callback-fn]
   (http/get top-articles-url options
-    (fn [{:keys [status headers body error]}]
-      (if error
-        (println "Failed to get latest articles. Exception is " error)
-        (callback-fn (load-string body))))))
+            (fn [{:keys [status headers body error]}]
+              (if error
+                (println "Failed to get latest articles. Exception is " error)
+                (callback-fn (load-string body))))))
 
 (defn get-item [id callback-fn]
   (http/get (generate-item-url id) options
-    (fn [{:keys [status headers body error]}]
-      (if error
-        (println "Failed, exception is " error)
-        (callback-fn body)))))
+            (fn [{:keys [status headers body error]}]
+              (if error
+                (println "Failed, exception is " error)
+                (callback-fn body)))))

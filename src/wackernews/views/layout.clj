@@ -33,6 +33,6 @@
                   [:td {:style "text-align:right;padding-right:4px;"} 
                    [:span {:class "pagetop"}  
                     [:a {:href "user?id=pg"} "pg"] "\n                (42069) |\n                " 
-                    [:a {:href "logout?goto=news"} "logout"] ]] ]]]]]  
+                    [:a {:href "logout?goto=news"} "logout"]]]]]]]]  
              [:tr {:style "height:10px"}]
              content]]]]))

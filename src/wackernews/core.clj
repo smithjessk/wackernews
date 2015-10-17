@@ -11,16 +11,18 @@
 (defn group-print [articles]
   (println articles))
 
-(defn make-request [item]
+(defn get-article-json [item]
   (get-item item #(parse-string %1 true)))
 
-(defn gen-post [index, result]
+(defn generate-post [index, result]
   (contents/post index, @result))
 
 (defn get-all-items [top-items]
-  (def res (map-indexed gen-post
-                (map make-request
-                     (take 30 top-items)))) res)
+  (def res
+    (map-indexed
+     #(generate-post %1 (get-article-json %2))
+     (take 30 top-items)))
+  res)
 
 (defroutes wackernews
   (GET "/" [] (layout/application "Home" @(get-top-articles get-all-items)))

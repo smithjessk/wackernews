@@ -5,7 +5,7 @@
 
 (def hn-url "http://news.ycombinator.com/")
 
-(defn post [ index, story ]
+(defn post [index, story]
   [:tr 
    [:td 
     [:table {:border "0", :cellpadding "0", :cellspacing "0"}
@@ -26,8 +26,8 @@
       [:tr 
        [:td {:colspan "2"}] 
        [:td {:class "subtext"}  
-        [:span {:class "score", :id (str "score_" (get story :id)) } (str (get story :score) " points")] " by " 
-         [:a {:href (str hn-url "user?id=" (get story :by))} (get story :by) ] " " 
-         [:a {:href (str hn-url "item?id=" (get story :id))} (get story :time) ] "  | " 
-         [:a {:href (str hn-url "item?id=" (get story :id))} (str (get story :descendants) " comments")] "              "]]  
-       [:tr {:class "spacer", :style "height:5px"}]]]]])
+        [:span {:class "score", :id (str "score_" (get story :id))} (str (get story :score) " points")] " by " 
+        [:a {:href (str hn-url "user?id=" (get story :by))} (get story :by)] " " 
+        [:a {:href (str hn-url "item?id=" (get story :id))} (get story :time)] "  | " 
+        [:a {:href (str hn-url "item?id=" (get story :id))} (str (get story :descendants) " comments")] "              "]]  
+      [:tr {:class "spacer", :style "height:5px"}]]]]])
