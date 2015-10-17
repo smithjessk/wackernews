@@ -1,7 +1,7 @@
 (ns wackernews.grabber
   (:require [org.httpkit.client :as http]))
 
-(def options {:timeout 5000             ; ms
+(def options {:timeout 5000 ;; ms
               :basic-auth ["user" "pass"]
               :query-params {:print "pretty"}
               :user-agent "User-Agent-string"

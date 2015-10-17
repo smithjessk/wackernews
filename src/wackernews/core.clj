@@ -4,6 +4,7 @@
             [compojure.route :as route]
             [wackernews.views.layout :as layout]
             [wackernews.views.contents :as contents]
+            [clojure.string :as str]
             [org.httpkit.server :refer [run-server]]))
 
 (defroutes wackernews
@@ -12,6 +13,12 @@
 
 (defn group-print [articles]
   (println articles))
+
+(defn get-all-items [top-items]
+  (def top top-items)
+  (doseq [i top] (get-item i)))
+
+(println (get-top-articles get-all-items))
 
 (defn -main []
   (println "Let the wackness begin...")
