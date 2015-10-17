@@ -6,4 +6,8 @@ HackerNews, but even more wack (who knew it was possible?)
 
 ## Stack
 The only thing that's less wack is the implementation language.
-Clojure with [Compojure](https://github.com/weavejester/compojure), [Hiccup](https://github.com/weavejester/hiccup), and [Ring](https://github.com/ring-clojure/ring).  
+
+Clojure with: 
+- [Compojure](https://github.com/weavejester/compojure)
+- [Hiccup](https://github.com/weavejester/hiccup)
+- [Ring](https://github.com/ring-clojure/ring).  
