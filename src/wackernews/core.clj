@@ -1,5 +1,5 @@
 (ns wackernews.core
-  (:require [wackernews.grabber :refer [grab]]
+  (:require [wackernews.grabber :refer :all]
             [compojure.core :refer :all]
             [org.httpkit.server :refer [run-server]])) ; httpkit is a server
 
@@ -8,5 +8,5 @@
 
 (defn -main []
   (println "Let the wackness begin...")
-  (grab (list "ye" "dog"))
+  (get-top-articles println)
   (run-server wackernews {:port 5000}))
