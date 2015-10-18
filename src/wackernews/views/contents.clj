@@ -5,11 +5,11 @@
 
 (def hn-url "http://news.ycombinator.com/")
 
-(defn post [story]
+(defn post [index story]
   [:span
    [:tr {:class "athing"}
     [:td {:align "right", :valign "top", :class "title"} 
-     [:span {:class "rank"} (str "1" ".")]] "      " 
+     [:span {:class "rank"} (str (+ index 1) ".")]] "      " 
     [:td 
      [:center 
       [:a {:id (str "up_" (get story :id)), :onclick "return vote(this)", :href (str hn-url "vote?for=" (get story :id))} 

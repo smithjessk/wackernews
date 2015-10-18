@@ -8,12 +8,17 @@
             [clojure.string :as str]
             [org.httpkit.server :refer [run-server]]))
 
-(defn get-article-json [item]
+(defn get-article-json
+  "Gets JSON for a single article ID"
+  [item]
   (get-item item #(parse-string % true)))
 
-(defn get-top-articles-json [items]
-  (pmap #(contents/post @(get-article-json %))
-         (take 30 items)))
+(defn get-top-articles-json
+  "Takes a list of article IDs and indexes them, gets their JSON
+  representation and then renders them as posts."
+  [items]
+  (pmap #(contents/post (get % 0) @(get-article-json (get % 1)))
+        (map-indexed #(-> [%1 %2]) (take 30 items))))
 
 (defroutes wackernews
   (GET "/" [] (layout/application "Home" @(get-top-articles get-top-articles-json)))
