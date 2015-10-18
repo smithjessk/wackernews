@@ -8,27 +8,17 @@
             [clojure.string :as str]
             [org.httpkit.server :refer [run-server]]))
 
-(defn group-print [articles]
-  (println articles))
-
 (defn get-article-json [item]
-  (get-item item #(parse-string %1 true)))
+  (get-item item #(parse-string % true)))
 
-(defn generate-post [index, result]
-  (contents/post index, @result))
-
-(defn get-all-items [top-items]
-  (def res
-    (map-indexed
-     #(generate-post %1 (get-article-json %2))
-     (take 30 top-items)))
-  res)
+(defn get-top-articles-json [items]
+  (pmap #(contents/post @(get-article-json %))
+         (take 30 items)))
 
 (defroutes wackernews
-  (GET "/" [] (layout/application "Home" @(get-top-articles get-all-items)))
+  (GET "/" [] (layout/application "Home" @(get-top-articles get-top-articles-json)))
   (route/resources "/"))
 
 (defn -main []
   (println "Let the wackness begin...")
-  ;; (get-top-articles group-print)
   (run-server wackernews {:port 5000}))
