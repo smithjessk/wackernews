@@ -13,14 +13,18 @@
 (def top-articles-url 
   "https://hacker-news.firebaseio.com/v0/topstories.json")
 
-(defn get-top-articles [callback-fn]
+(defn get-top-articles 
+  "Query the HackerNews API to get a list of top articles"
+  [callback-fn]
   (http/get top-articles-url options
             (fn [{:keys [status headers body error]}]
               (if error
                 (println "Failed to get latest articles. Exception is " error)
                 (callback-fn (load-string body))))))
 
-(defn get-item [id callback-fn]
+(defn get-item 
+  "Query the HackerNews API for information about the item with id `id`"
+  [id callback-fn]
   (http/get (generate-item-url id) options
             (fn [{:keys [status headers body error]}]
               (if error
